@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 
 <meta charset="UTF-8">
@@ -12,97 +13,97 @@
 <style>
 
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:Arial;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
 }
 
 body{
-  background:#f4f6f9;
-  display:flex;
+background:#f4f6f9;
+display:flex;
 }
 
 .sidebar{
-  width:260px;
-  height:100vh;
-  background:#0d6efd;
-  position:fixed;
-  color:white;
-  padding-top:20px;
+width:260px;
+height:100vh;
+background:#0d6efd;
+position:fixed;
+color:white;
+padding-top:20px;
 }
 
 .sidebar h3{
-  text-align:center;
-  margin-bottom:10px;
+text-align:center;
+margin-bottom:10px;
 }
 
 .admin{
-  text-align:center;
-  margin-bottom:30px;
+text-align:center;
+margin-bottom:30px;
 }
 
 .sidebar ul{
-  list-style:none;
-  padding:0;
+list-style:none;
+padding:0;
 }
 
 .sidebar ul li{
-  padding:15px 25px;
+padding:15px 25px;
 }
 
 .sidebar ul li:hover{
-  background:#084298;
+background:#084298;
 }
 
 .sidebar ul li a{
-  color:white;
-  text-decoration:none;
-  display:block;
+color:white;
+text-decoration:none;
+display:block;
 }
 
 .content{
-  margin-left:260px;
-  width:100%;
-  padding:30px;
+margin-left:260px;
+width:100%;
+padding:30px;
 }
 
 .hero{
-  background:linear-gradient(to right,#0d6efd,#3d8bfd);
-  color:white;
-  padding:40px;
-  border-radius:15px;
+background:linear-gradient(to right,#0d6efd,#3d8bfd);
+color:white;
+padding:40px;
+border-radius:15px;
 }
 
 .card-box{
-  background:white;
-  border-radius:15px;
-  padding:25px;
-  margin-top:30px;
-  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+background:white;
+border-radius:15px;
+padding:25px;
+margin-top:30px;
+box-shadow:0 2px 10px rgba(0,0,0,0.1);
 }
 
 .menu-title{
-  color:#0d6efd;
-  font-size:28px;
-  margin-bottom:20px;
-  font-weight:bold;
+color:#0d6efd;
+font-size:28px;
+margin-bottom:20px;
+font-weight:bold;
 }
 
 .table thead{
-  background:#0d6efd;
-  color:white;
+background:#0d6efd;
+color:white;
 }
 
 .footer{
-  text-align:center;
-  margin-top:30px;
-  color:#666;
+text-align:center;
+margin-top:30px;
+color:#666;
 }
 
 img{
-  width:100%;
-  border-radius:10px;
+width:100%;
+border-radius:10px;
 }
 
 </style>
@@ -118,8 +119,10 @@ img{
 <h3>DESA BALEHARJO</h3>
 
 <div class="admin">
+
 Admin : <b>Redi</b><br>
 Kaur Perencanaan
+
 </div>
 
 <ul>
@@ -173,8 +176,7 @@ Sistem Informasi Pembangunan Desa Baleharjo Sragen
 </h1>
 
 <p>
-Website pengelolaan pembangunan desa
-oleh Kaur Perencanaan Desa Baleharjo
+Website pengelolaan pembangunan desa oleh Kaur Perencanaan Desa Baleharjo
 </p>
 
 </div>
@@ -197,9 +199,7 @@ Input Data Pembangunan
 
 <div class="col-md-6 mb-3">
 
-<label>
-Uraian Nama Kegiatan
-</label>
+<label>Uraian Nama Kegiatan</label>
 
 <input
 type="text"
@@ -211,9 +211,7 @@ required>
 
 <div class="col-md-6 mb-3">
 
-<label>
-Lokasi Kegiatan
-</label>
+<label>Lokasi Kegiatan</label>
 
 <input
 type="text"
@@ -225,9 +223,7 @@ required>
 
 <div class="col-md-6 mb-3">
 
-<label>
-Rencana Volume
-</label>
+<label>Rencana Volume</label>
 
 <input
 type="text"
@@ -239,9 +235,7 @@ required>
 
 <div class="col-md-6 mb-3">
 
-<label>
-Sumber Dana
-</label>
+<label>Sumber Dana</label>
 
 <select
 class="form-select"
@@ -269,9 +263,7 @@ class="col-md-6 mb-3"
 id="lainyaInput"
 style="display:none;">
 
-<label>
-Input Dana Lainnya
-</label>
+<label>Input Dana Lainnya</label>
 
 <input
 type="text"
@@ -282,9 +274,7 @@ id="sumberDanaLain">
 
 <div class="col-md-6 mb-3">
 
-<label>
-Pagu Anggaran
-</label>
+<label>Pagu Anggaran</label>
 
 <input
 type="number"
@@ -296,9 +286,7 @@ required>
 
 <div class="col-md-6 mb-3">
 
-<label>
-Nama PKA
-</label>
+<label>Nama PKA</label>
 
 <input
 type="text"
@@ -351,6 +339,7 @@ Data Belum Update Realisasi
 <th>Sumber Dana</th>
 <th>Pagu</th>
 <th>Nama PKA</th>
+<th>Aksi</th>
 
 </tr>
 
@@ -448,12 +437,11 @@ Dokumentasi Pembangunan
 
 </div>
 
-<!-- SCRIPT -->
-
 <script>
 
 const scriptURL =
 "https://script.google.com/macros/s/AKfycbzHbGNYfVNt50FsWObxX_czUyfU1V_MIMHwOYLWSRIG1z1gCQlLUrm9YKh-ZmClnmYgPw/exec";
+
 
 
 // MENU
@@ -474,6 +462,7 @@ document.getElementById(id).style.display = 'block';
 }
 
 showSection('home');
+
 
 
 // SUMBER DANA
@@ -497,6 +486,7 @@ lainyaInput.style.display = "none";
 }
 
 }
+
 
 
 // SIMPAN DATA
@@ -564,6 +554,7 @@ loadData();
 });
 
 
+
 // LOAD DATA
 
 function loadData(){
@@ -599,6 +590,35 @@ tbody.innerHTML += `
 
 <td>${item.nama_pka}</td>
 
+<td>
+
+<button
+class="btn btn-warning btn-sm"
+onclick="editData(
+
+'${item.nama_kegiatan}',
+'${item.lokasi}',
+'${item.volume}',
+'${item.sumber_dana}',
+'${item.pagu}',
+'${item.nama_pka}'
+
+)">
+
+Edit
+
+</button>
+
+<button
+class="btn btn-danger btn-sm"
+onclick="hapusData(${item.row})">
+
+Hapus
+
+</button>
+
+</td>
+
 </tr>
 
 `;
@@ -608,6 +628,70 @@ tbody.innerHTML += `
 });
 
 }
+
+
+
+// EDIT DATA
+
+function editData(
+kegiatan,
+lokasi,
+volume,
+dana,
+pagu,
+pka
+){
+
+showSection('input');
+
+document.getElementById("nama_kegiatan").value =
+kegiatan;
+
+document.getElementById("lokasi").value =
+lokasi;
+
+document.getElementById("volume").value =
+volume;
+
+document.getElementById("sumberDana").value =
+dana;
+
+document.getElementById("pagu").value =
+pagu;
+
+document.getElementById("nama_pka").value =
+pka;
+
+}
+
+
+
+// HAPUS DATA
+
+function hapusData(row){
+
+if(confirm("Yakin ingin menghapus data?")){
+
+fetch(scriptURL + "?row=" + row, {
+
+method : "DELETE"
+
+})
+
+.then(response => response.json())
+
+.then(res => {
+
+alert("Data berhasil dihapus");
+
+loadData();
+
+});
+
+}
+
+}
+
 
 
 // AUTO LOAD
