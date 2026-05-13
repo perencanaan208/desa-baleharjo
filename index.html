@@ -1,236 +1,229 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Sistem Pembangunan Desa Baleharjo</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 <style>
 
-body{
+*{
 margin:0;
+padding:0;
+box-sizing:border-box;
 font-family:Arial;
-background:#f4f6f9;
+}
+
+body{
 display:flex;
+background:#f1f3f6;
 }
 
 .sidebar{
-width:260px;
+width:280px;
 height:100vh;
-background:#0d6efd;
-position:fixed;
+background:#1565ff;
 color:white;
-padding-top:20px;
+padding:30px 20px;
+position:fixed;
+left:0;
+top:0;
 }
 
-.sidebar h2{
+.logo{
+font-size:28px;
+font-weight:bold;
 text-align:center;
+margin-bottom:20px;
 }
 
 .admin{
 text-align:center;
-margin-bottom:30px;
+margin-bottom:40px;
+line-height:30px;
+font-size:18px;
 }
 
-.sidebar ul{
-list-style:none;
-padding:0;
-}
-
-.sidebar ul li{
-padding:15px 25px;
-}
-
-.sidebar ul li:hover{
-background:#084298;
-}
-
-.sidebar ul li a{
+.menu a{
+display:block;
 color:white;
 text-decoration:none;
-display:block;
+padding:15px;
+margin-bottom:10px;
+border-radius:8px;
+font-size:22px;
 }
 
-.content{
-margin-left:260px;
-width:100%;
+.menu a:hover{
+background:rgba(255,255,255,0.2);
+}
+
+.main{
+margin-left:280px;
 padding:30px;
+width:100%;
 }
 
-.card-box{
+.card{
 background:white;
-padding:25px;
+padding:30px;
 border-radius:15px;
-box-shadow:0 2px 10px rgba(0,0,0,0.1);
+box-shadow:0 0 10px rgba(0,0,0,0.1);
 margin-bottom:30px;
 }
 
-.menu-title{
-font-size:30px;
-font-weight:bold;
-color:#0d6efd;
-margin-bottom:20px;
+h1{
+color:#1565ff;
+margin-bottom:30px;
 }
 
-.hero{
-background:linear-gradient(to right,#0d6efd,#3d8bfd);
-padding:40px;
-border-radius:15px;
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+input,select{
+width:100%;
+padding:14px;
+border:1px solid #ccc;
+border-radius:8px;
+font-size:18px;
+}
+
+button{
+padding:12px 20px;
+border:none;
+border-radius:6px;
+cursor:pointer;
+font-size:16px;
+}
+
+.btn-save{
+background:#1565ff;
+color:white;
+margin-top:20px;
+}
+
+.btn-edit{
+background:orange;
+color:black;
+}
+
+.btn-delete{
+background:red;
 color:white;
 }
 
-.table thead{
-background:#0d6efd;
+.btn-update{
+background:green;
 color:white;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:20px;
+}
+
+table th,table td{
+border:1px solid #ddd;
+padding:12px;
+text-align:left;
+font-size:18px;
+}
+
+table th{
+background:#f3f3f3;
+}
+
+.section{
+display:none;
 }
 
 .footer{
 text-align:center;
-margin-top:30px;
+margin-top:20px;
+font-size:20px;
 color:#666;
 }
 
 </style>
-
 </head>
 
 <body>
 
 <div class="sidebar">
 
-<h2>DESA BALEHARJO</h2>
+<div class="logo">
+DESA BALEHARJO
+</div>
 
 <div class="admin">
-
 Admin : <b>Redi</b><br>
 Kaur Perencanaan
+</div>
+
+<div class="menu">
+
+<a href="#" onclick="showSection('home')">🏠 Home</a>
+
+<a href="#" onclick="showSection('input')">📝 Input Data</a>
+
+<a href="#" onclick="showSection('pembangunan')">📊 Data Pembangunan</a>
+
+<a href="#">💰 Realisasi</a>
+
+<a href="#">📸 Dokumentasi</a>
 
 </div>
 
-<ul>
-
-<li>
-<a href="#" onclick="showSection('home')">
-🏠 Home
-</a>
-</li>
-
-<li>
-<a href="#" onclick="showSection('input')">
-📝 Input Data
-</a>
-</li>
-
-<li>
-<a href="#" onclick="showSection('data')">
-📊 Data Pembangunan
-</a>
-</li>
-
-<li>
-<a href="#" onclick="showSection('realisasi')">
-💰 Realisasi
-</a>
-</li>
-
-<li>
-<a href="#" onclick="showSection('dokumentasi')">
-📸 Dokumentasi
-</a>
-</li>
-
-</ul>
-
 </div>
 
-<div class="content">
-
-
+<div class="main">
 
 <!-- HOME -->
+<div id="home" class="section card">
 
-<section id="home" class="menu-section">
+<h1>Selamat Datang</h1>
 
-<div class="hero">
+<h2>Sistem Informasi Pembangunan Desa Baleharjo Sragen</h2>
 
-<h1>
-Sistem Informasi Pembangunan Desa Baleharjo
-</h1>
+<br>
 
-<p>
-Pengelolaan pembangunan desa oleh Kaur Perencanaan
+<p style="font-size:22px">
+Website pengelolaan pembangunan desa oleh Kaur Perencanaan.
 </p>
 
 </div>
 
-</section>
-
-
-
 <!-- INPUT -->
+<div id="input" class="section card">
 
-<section id="input" class="menu-section" style="display:none;">
+<h1>Input Data Pembangunan</h1>
 
-<div class="card-box">
+<div class="form-grid">
 
-<div class="menu-title">
-Input Data Pembangunan
-</div>
-
-<form id="formPembangunan">
-
-<input type="hidden" id="editRow">
-
-<div class="row">
-
-<div class="col-md-6 mb-3">
-
+<div>
 <label>Uraian Nama Kegiatan</label>
-
-<input
-type="text"
-class="form-control"
-id="nama_kegiatan"
-required>
-
+<input type="text" id="kegiatan">
 </div>
 
-<div class="col-md-6 mb-3">
-
+<div>
 <label>Lokasi Kegiatan</label>
-
-<input
-type="text"
-class="form-control"
-id="lokasi"
-required>
-
+<input type="text" id="lokasi">
 </div>
 
-<div class="col-md-6 mb-3">
-
+<div>
 <label>Rencana Volume</label>
-
-<input
-type="text"
-class="form-control"
-id="volume"
-required>
-
+<input type="number" id="volume">
 </div>
 
-<div class="col-md-6 mb-3">
-
+<div>
 <label>Sumber Dana</label>
 
-<select
-id="sumberDana"
-class="form-select"
-required>
+<select id="sumber_dana">
 
 <option value="">-- Pilih --</option>
 <option>DANA DESA</option>
@@ -244,64 +237,34 @@ required>
 
 </div>
 
-<div class="col-md-6 mb-3">
-
+<div>
 <label>Pagu Anggaran</label>
-
-<input
-type="number"
-class="form-control"
-id="pagu"
-required>
-
+<input type="number" id="pagu">
 </div>
 
-<div class="col-md-6 mb-3">
-
+<div>
 <label>Nama PKA</label>
-
-<input
-type="text"
-class="form-control"
-id="nama_pka"
-required>
-
+<input type="text" id="nama_pka">
 </div>
 
 </div>
 
-<button
-type="submit"
-class="btn btn-primary">
-
+<button class="btn-save" onclick="simpanData()">
 Simpan Data
-
 </button>
 
-</form>
-
 </div>
-
-</section>
-
-
 
 <!-- DATA -->
+<div id="pembangunan" class="section card">
 
-<section id="data" class="menu-section" style="display:none;">
+<h1>Data Pembangunan Desa</h1>
 
-<div class="card-box">
-
-<div class="menu-title">
-Data Pembangunan Desa
-</div>
-
-<table class="table table-bordered table-striped">
+<table>
 
 <thead>
 
 <tr>
-
 <th>No</th>
 <th>Kegiatan</th>
 <th>Lokasi</th>
@@ -310,136 +273,107 @@ Data Pembangunan Desa
 <th>Pagu</th>
 <th>Nama PKA</th>
 <th>Aksi</th>
-
 </tr>
 
 </thead>
 
-<tbody id="dataPembangunan">
+<tbody id="dataBody">
 
 </tbody>
 
 </table>
 
 </div>
-
-</section>
-
-
-
-<!-- REALISASI -->
-
-<section id="realisasi" class="menu-section" style="display:none;">
-
-<div class="card-box">
-
-<div class="menu-title">
-Data Realisasi Pembangunan
-</div>
-
-<table class="table table-bordered">
-
-<thead>
-
-<tr>
-
-<th>No</th>
-<th>Kegiatan</th>
-<th>Realisasi</th>
-<th>Keterangan</th>
-
-</tr>
-
-</thead>
-
-<tbody id="dataRealisasi">
-
-</tbody>
-
-</table>
-
-</div>
-
-</section>
-
-
-
-<!-- DOKUMENTASI -->
-
-<section id="dokumentasi" class="menu-section" style="display:none;">
-
-<div class="card-box">
-
-<div class="menu-title">
-Dokumentasi
-</div>
-
-<p>Menu dokumentasi pembangunan desa.</p>
-
-</div>
-
-</section>
-
-
 
 <div class="footer">
-
 © 2026 Pemerintah Desa Baleharjo Sragen | Admin Redi
-
 </div>
 
 </div>
-
-
 
 <script>
 
-const scriptURL =
-"https://script.google.com/macros/s/AKfycbzHbGNYfVNt50FsWObxX_czUyfU1V_MIMHwOYLWSRIG1z1gCQlLUrm9YKh-ZmClnmYgPw/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbzHbGNYfVNt50FsWObxX_czUyfU1V_MIMHwOYLWSRIG1z1gCQlLUrm9YKh-ZmClnmYgPw/exec";
 
-
-
-// MENU
+let editRow = "";
 
 function showSection(id){
 
-document.querySelectorAll('.menu-section')
-.forEach(section => {
-
-section.style.display = 'none';
-
+document.querySelectorAll(".section").forEach(sec=>{
+sec.style.display="none";
 });
 
-document.getElementById(id).style.display = 'block';
+document.getElementById(id).style.display="block";
 
 }
 
+showSection("home");
 
+function simpanData(){
 
-// LOAD DATA
+const data = {
+
+action : "add",
+
+kegiatan : document.getElementById("kegiatan").value,
+lokasi : document.getElementById("lokasi").value,
+volume : document.getElementById("volume").value,
+sumber_dana : document.getElementById("sumber_dana").value,
+pagu : document.getElementById("pagu").value,
+nama_pka : document.getElementById("nama_pka").value
+
+};
+
+fetch(scriptURL,{
+
+method:"POST",
+body:JSON.stringify(data)
+
+})
+
+.then(res=>res.json())
+
+.then(res=>{
+
+alert("Data berhasil disimpan");
+
+clearForm();
+
+loadData();
+
+showSection("pembangunan");
+
+})
+
+.catch(err=>{
+
+alert("Gagal simpan data");
+
+console.log(err);
+
+});
+
+}
 
 function loadData(){
 
 fetch(scriptURL)
 
-.then(res => res.json())
+.then(res=>res.json())
 
-.then(data => {
+.then(data=>{
 
-let tbody =
-document.getElementById("dataPembangunan");
-
-tbody.innerHTML = "";
+let html="";
 
 data.forEach((item,index)=>{
 
-tbody.innerHTML += `
+html += `
 
 <tr>
 
 <td>${index+1}</td>
 
-<td>${item.nama_kegiatan}</td>
+<td>${item.kegiatan}</td>
 
 <td>${item.lokasi}</td>
 
@@ -453,42 +387,29 @@ tbody.innerHTML += `
 
 <td>
 
-<button
-class="btn btn-warning btn-sm"
+<button class="btn-edit"
 onclick="editData(
-
 '${item.row}',
-'${item.nama_kegiatan}',
+'${item.kegiatan}',
 '${item.lokasi}',
 '${item.volume}',
 '${item.sumber_dana}',
 '${item.pagu}',
 '${item.nama_pka}'
-
 )">
-
 Edit
-
 </button>
 
-<button
-class="btn btn-danger btn-sm"
-onclick="hapusData(${item.row})">
-
+<button class="btn-delete"
+onclick="hapusData('${item.row}')">
 Hapus
-
 </button>
 
-<button
-class="btn btn-success btn-sm"
-onclick="updateRealisasi(
-
-'${item.nama_kegiatan}'
-
+<button class="btn-update"
+onclick="updateData(
+'${item.row}'
 )">
-
 Update
-
 </button>
 
 </td>
@@ -499,184 +420,139 @@ Update
 
 });
 
+document.getElementById("dataBody").innerHTML = html;
+
 });
 
 }
-
-
-
-// EDIT
 
 function editData(
 row,
 kegiatan,
 lokasi,
 volume,
-dana,
+sumber_dana,
 pagu,
-pka
+nama_pka
 ){
 
-showSection('input');
+editRow = row;
 
-document.getElementById("editRow").value = row;
-document.getElementById("nama_kegiatan").value = kegiatan;
+document.getElementById("kegiatan").value = kegiatan;
 document.getElementById("lokasi").value = lokasi;
 document.getElementById("volume").value = volume;
-document.getElementById("sumberDana").value = dana;
+document.getElementById("sumber_dana").value = sumber_dana;
 document.getElementById("pagu").value = pagu;
-document.getElementById("nama_pka").value = pka;
+document.getElementById("nama_pka").value = nama_pka;
+
+showSection("input");
 
 }
 
+function updateData(){
 
+if(editRow==""){
+alert("Silahkan klik EDIT terlebih dahulu");
+return;
+}
 
-// HAPUS
+const data = {
 
-function hapusData(row){
+action : "edit",
 
-if(confirm("Yakin hapus data?")){
+row : editRow,
 
-fetch(scriptURL + "?row=" + row, {
+kegiatan : document.getElementById("kegiatan").value,
+lokasi : document.getElementById("lokasi").value,
+volume : document.getElementById("volume").value,
+sumber_dana : document.getElementById("sumber_dana").value,
+pagu : document.getElementById("pagu").value,
+nama_pka : document.getElementById("nama_pka").value
 
-method : "DELETE"
+};
+
+fetch(scriptURL,{
+
+method:"POST",
+body:JSON.stringify(data)
 
 })
 
-.then(res => res.json())
+.then(res=>res.json())
 
-.then(data => {
+.then(res=>{
+
+alert("Data berhasil diupdate");
+
+clearForm();
+
+loadData();
+
+showSection("pembangunan");
+
+})
+
+.catch(err=>{
+
+alert("Gagal update");
+
+console.log(err);
+
+});
+
+}
+
+function hapusData(row){
+
+if(confirm("Yakin ingin menghapus data ?")){
+
+fetch(scriptURL,{
+
+method:"POST",
+
+body:JSON.stringify({
+
+action:"delete",
+row:row
+
+})
+
+})
+
+.then(res=>res.json())
+
+.then(res=>{
 
 alert("Data berhasil dihapus");
 
 loadData();
 
-});
-
-}
-
-}
-
-
-
-// UPDATE REALISASI
-
-function updateRealisasi(kegiatan){
-
-showSection('realisasi');
-
-let tbody =
-document.getElementById("dataRealisasi");
-
-tbody.innerHTML += `
-
-<tr>
-
-<td>-</td>
-
-<td>${kegiatan}</td>
-
-<td>
-
-<input
-type="number"
-class="form-control"
-placeholder="%">
-
-</td>
-
-<td>
-
-<input
-type="text"
-class="form-control"
-placeholder="Keterangan">
-
-</td>
-
-</tr>
-
-`;
-
-}
-
-
-
-// SIMPAN DATA
-
-document
-.getElementById("formPembangunan")
-.addEventListener("submit", function(e){
-
-e.preventDefault();
-
-let data = {
-
-row :
-document.getElementById("editRow").value,
-
-nama_kegiatan :
-document.getElementById("nama_kegiatan").value,
-
-lokasi :
-document.getElementById("lokasi").value,
-
-volume :
-document.getElementById("volume").value,
-
-sumber_dana :
-document.getElementById("sumberDana").value,
-
-pagu :
-document.getElementById("pagu").value,
-
-nama_pka :
-document.getElementById("nama_pka").value
-
-};
-
-fetch(scriptURL, {
-
-method : "POST",
-
-body : JSON.stringify(data)
-
 })
 
-.then(res => res.json())
+.catch(err=>{
 
-.then(data => {
+alert("Gagal hapus data");
 
-if(data.status == "updated"){
+console.log(err);
 
-alert("Data berhasil diupdate");
-
-}else{
-
-alert("Data berhasil disimpan");
+});
 
 }
 
-document
-.getElementById("formPembangunan")
-.reset();
+}
 
-document
-.getElementById("editRow").value = "";
+function clearForm(){
 
-loadData();
+document.getElementById("kegiatan").value = "";
+document.getElementById("lokasi").value = "";
+document.getElementById("volume").value = "";
+document.getElementById("sumber_dana").value = "";
+document.getElementById("pagu").value = "";
+document.getElementById("nama_pka").value = "";
 
-showSection('data');
-
-});
-
-});
-
-
+}
 
 loadData();
-
-showSection('home');
 
 </script>
 
