@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Sistem Pembangunan Desa Baleharjo Sragen</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f4f6f9;
+      display:flex;
+    }
+
+    /* SIDEBAR */
+
+    .sidebar{
+      width:260px;
+      height:100vh;
+      background:#0d6efd;
+      position:fixed;
+      color:white;
+      padding-top:20px;
+    }
+
+    .sidebar h3{
+      text-align:center;
+      margin-bottom:10px;
+      font-weight:bold;
+    }
+
+    .sidebar .admin{
+      text-align:center;
+      margin-bottom:30px;
+      color:#dbe8ff;
+      font-size:14px;
+    }
+
+    .sidebar ul{
+      list-style:none;
+      padding:0;
+    }
+
+    .sidebar ul li{
+      padding:15px 25px;
+      transition:0.3s;
+      border-left:4px solid transparent;
+    }
+
+    .sidebar ul li:hover{
+      background:#084298;
+      border-left:4px solid white;
+    }
+
+    .sidebar ul li a{
+      color:white;
+      text-decoration:none;
+      display:block;
+    }
+
+    /* CONTENT */
+
+    .content{
+      margin-left:260px;
+      width:100%;
+      padding:30px;
+    }
+
+    .hero{
+      background:linear-gradient(to right,#0d6efd,#3d8bfd);
+      color:white;
+      padding:40px;
+      border-radius:15px;
+      margin-bottom:30px;
+    }
+
+    .hero h1{
+      font-size:32px;
+      font-weight:bold;
+    }
+
+    .card-box{
+      background:white;
+      border-radius:12px;
+      padding:25px;
+      box-shadow:0 2px 10px rgba(0,0,0,0.1);
+      margin-bottom:30px;
+    }
+
+    .menu-title{
+      font-size:24px;
+      font-weight:bold;
+      margin-bottom:20px;
+      color:#0d6efd;
+    }
+
+    .table thead{
+      background:#0d6efd;
+      color:white;
+    }
+
+    .footer{
+      text-align:center;
+      color:#666;
+      margin-top:30px;
+      font-size:14px;
+    }
+
+    img{
+      width:100%;
+      border-radius:10px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- SIDEBAR -->
+
+  <div class="sidebar">
+
+    <h3>DESA BALEHARJO</h3>
+
+    <div class="admin">
+      Admin : <b>Redi</b><br>
+      Kaur Perencanaan
+    </div>
+
+    <ul>
+      <li><a href="#home">🏠 Home</a></li>
+      <li><a href="#input">📝 Input Data</a></li>
+      <li><a href="#data">📊 Data Pembangunan</a></li>
+      <li><a href="#realisasi">💰 Realisasi Pembangunan</a></li>
+      <li><a href="#dokumentasi">📸 Dokumentasi</a></li>
+    </ul>
+
+  </div>
+
+  <!-- CONTENT -->
+
+  <div class="content">
+
+    <!-- HOME -->
+
+    <section id="home">
+
+      <div class="hero">
+
+        <h1>
+          Sistem Informasi Pembangunan Desa Baleharjo Sragen
+        </h1>
+
+        <p>
+          Website pengelolaan pembangunan desa yang dikelola oleh
+          Kaur Perencanaan Desa Baleharjo.
+        </p>
+
+      </div>
+
+    </section>
+
+    <!-- INPUT DATA -->
+
+    <section id="input">
+
+      <div class="card-box">
+
+        <div class="menu-title">
+          Input Data Pembangunan
+        </div>
+
+        <form id="formPembangunan">
+
+          <div class="row">
+
+            <!-- NAMA KEGIATAN -->
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label">
+                Uraian Nama Kegiatan
+              </label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="nama_kegiatan"
+                required>
+            </div>
+
+            <!-- LOKASI -->
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label">
+                Lokasi Kegiatan
+              </label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="lokasi"
+                required>
+            </div>
+
+            <!-- VOLUME -->
+
+            <div class="col-md-6 mb-3">
+              <label class="form-label">
+                Rencana Volume
+              </label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="volume"
+                required>
+            </div>
+
+            <!-- SUMBER DANA -->
+
+            <div class="col-md-6 mb-3">
+
+              <label class="form-label">
+                Sumber Dana
+              </label>
+
+              <select
+                class="form-select"
+                id="sumberDana"
+                onchange="cekSumberDana()"
+                required>
+
+                <option value="">
+                  -- Pilih Sumber Dana --
+                </option>
+
+                <option value="DANA DESA">
+                  DANA DESA
+                </option>
+
+                <option value="ADD">
+                  ADD
+                </option>
+
+                <option value="BANPROV">
+                  BANPROV
+                </option>
+
+                <option value="BANKAB">
+                  BANKAB
+                </option>
+
+                <option value="BHPR">
+                  BHPR
+                </option>
+
+                <option value="LAINYA">
+                  LAINYA
+                </option>
+
+              </select>
+
+            </div>
+
+            <!-- INPUT LAINNYA -->
+
+            <div
+              class="col-md-6 mb-3"
+              id="lainyaInput"
+              style="display:none;">
+
+              <label class="form-label">
+                Input Sumber Dana Lainnya
+              </label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="sumberDanaLain">
+
+            </div>
+
+            <!-- PAGU -->
+
+            <div class="col-md-6 mb-3">
+
+              <label class="form-label">
+                Pagu Anggaran
+              </label>
+
+              <input
+                type="number"
+                class="form-control"
+                id="pagu"
+                required>
+
+            </div>
+
+            <!-- NAMA PKA -->
+
+            <div class="col-md-6 mb-3">
+
+              <label class="form-label">
+                Nama PKA
+              </label>
+
+              <input
+                type="text"
+                class="form-control"
+                id="nama_pka"
+                required>
+
+            </div>
+
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn-primary">
+
+            Simpan Data
+
+          </button>
+
+        </form>
+
+      </div>
+
+    </section>
+
+    <!-- DATA PEMBANGUNAN -->
+
+    <section id="data">
+
+      <div class="card-box">
+
+        <div class="menu-title">
+          Data Pembangunan Desa
+        </div>
+
+        <!-- BELUM REALISASI -->
+
+        <h5 class="text-danger mb-3">
+          Data Belum Update Realisasi
+        </h5>
+
+        <table class="table table-bordered table-striped mb-5">
+
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Kegiatan</th>
+              <th>Lokasi</th>
+              <th>Volume</th>
+              <th>Sumber Dana</th>
+              <th>Pagu</th>
+              <th>Nama PKA</th>
+            </tr>
+          </thead>
+
+          <tbody id="belumRealisasi">
+          </tbody>
+
+        </table>
+
+        <!-- SUDAH REALISASI -->
+
+        <h5 class="text-success mb-3">
+          Data Sudah Update Realisasi
+        </h5>
+
+        <table class="table table-bordered table-striped">
+
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Kegiatan</th>
+              <th>Lokasi</th>
+              <th>Volume</th>
+              <th>Sumber Dana</th>
+              <th>Pagu</th>
+              <th>Nama PKA</th>
+              <th>Realisasi</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>1</td>
+              <td>Pembangunan Jalan Desa</td>
+              <td>Dusun Selatan</td>
+              <td>250 Meter</td>
+              <td>DANA DESA</td>
+              <td>Rp 150.000.000</td>
+              <td>Redi</td>
+              <td>100%</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+    <!-- REALISASI -->
+
+    <section id="realisasi">
+
+      <div class="card-box">
+
+        <div class="menu-title">
+          Realisasi Pembangunan
+        </div>
+
+        <table class="table table-bordered">
+
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Kegiatan</th>
+              <th>Target</th>
+              <th>Realisasi</th>
+              <th>Persentase</th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+            <tr>
+              <td>1</td>
+              <td>Pembangunan Jalan Desa</td>
+              <td>100%</td>
+              <td>100%</td>
+              <td>100%</td>
+            </tr>
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </section>
+
+    <!-- DOKUMENTASI -->
+
+    <section id="dokumentasi">
+
+      <div class="card-box">
+
+        <div class="menu-title">
+          Dokumentasi Pembangunan
+        </div>
+
+        <div class="row">
+
+          <div class="col-md-4 mb-3">
+            <img src="https://via.placeholder.com/350x200">
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <img src="https://via.placeholder.com/350x200">
+          </div>
+
+          <div class="col-md-4 mb-3">
+            <img src="https://via.placeholder.com/350x200">
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="footer">
+      © 2026 Pemerintah Desa Baleharjo Sragen | Admin Redi
+    </div>
+
+  </div>
+
+  <!-- SCRIPT -->
+
+  <script>
+
+    const scriptURL =
+    "https://script.google.com/macros/s/AKfycbzHbGNYfVNt50FsWObxX_czUyfU1V_MIMHwOYLWSRIG1z1gCQlLUrm9YKh-ZmClnmYgPw/exec";
+
+    function cekSumberDana(){
+
+      let sumberDana =
+      document.getElementById("sumberDana").value;
+
+      let lainyaInput =
+      document.getElementById("lainyaInput");
+
+      if(sumberDana === "LAINYA"){
+
+        lainyaInput.style.display = "block";
+
+      }else{
+
+        lainyaInput.style.display = "none";
+
+      }
+    }
+
+    // SIMPAN DATA
+
+    document
+    .getElementById("formPembangunan")
+    .addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      let sumberDana =
+      document.getElementById("sumberDana").value;
+
+      if(sumberDana === "LAINYA"){
+
+        sumberDana =
+        document.getElementById("sumberDanaLain").value;
+      }
+
+      let data = {
+
+        nama_kegiatan :
+        document.getElementById("nama_kegiatan").value,
+
+        lokasi :
+        document.getElementById("lokasi").value,
+
+        volume :
+        document.getElementById("volume").value,
+
+        sumber_dana :
+        sumberDana,
+
+        pagu :
+        document.getElementById("pagu").value,
+
+        nama_pka :
+        document.getElementById("nama_pka").value
+
+      };
+
+      fetch(scriptURL, {
+
+        method : "POST",
+
+        body : JSON.stringify(data)
+
+      })
+
+      .then(response => response.json())
+
+      .then(data => {
+
+        alert("Data berhasil disimpan!");
+
+        tambahTabel(data);
+
+        document
+        .getElementById("formPembangunan")
+        .reset();
+
+        document
+        .getElementById("lainyaInput")
+        .style.display = "none";
+
+      })
+
+      .catch(error => {
+
+        alert("Gagal menyimpan data!");
+
+      });
+
+    });
+
+    // TAMPIL DATA KE TABEL
+
+    let nomor = 1;
+
+    function tambahTabel(data){
+
+      let tbody =
+      document.getElementById("belumRealisasi");
+
+      let row =
+
+      `
+      <tr>
+        <td>${nomor++}</td>
+        <td>${document.getElementById("nama_kegiatan").value}</td>
+        <td>${document.getElementById("lokasi").value}</td>
+        <td>${document.getElementById("volume").value}</td>
+        <td>${document.getElementById("sumberDana").value}</td>
+        <td>Rp ${document.getElementById("pagu").value}</td>
+        <td>${document.getElementById("nama_pka").value}</td>
+      </tr>
+      `;
+
+      tbody.innerHTML += row;
+    }
+
+  </script>
+
+</body>
+</html>
