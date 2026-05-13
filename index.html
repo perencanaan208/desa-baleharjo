@@ -112,8 +112,6 @@ border-radius:10px;
 
 <body>
 
-<!-- SIDEBAR -->
-
 <div class="sidebar">
 
 <h3>DESA BALEHARJO</h3>
@@ -161,8 +159,6 @@ Kaur Perencanaan
 
 </div>
 
-<!-- CONTENT -->
-
 <div class="content">
 
 <!-- HOME -->
@@ -183,6 +179,8 @@ Website pengelolaan pembangunan desa oleh Kaur Perencanaan Desa Baleharjo
 
 </section>
 
+
+
 <!-- INPUT -->
 
 <section id="input" class="menu-section">
@@ -194,6 +192,8 @@ Input Data Pembangunan
 </div>
 
 <form id="formPembangunan">
+
+<input type="hidden" id="editRow">
 
 <div class="row">
 
@@ -312,6 +312,8 @@ Simpan Data
 
 </section>
 
+
+
 <!-- DATA -->
 
 <section id="data" class="menu-section">
@@ -321,10 +323,6 @@ Simpan Data
 <div class="menu-title">
 Data Pembangunan Desa
 </div>
-
-<h5 class="text-danger mb-3">
-Data Belum Update Realisasi
-</h5>
 
 <table class="table table-bordered table-striped">
 
@@ -355,6 +353,8 @@ Data Belum Update Realisasi
 
 </section>
 
+
+
 <!-- REALISASI -->
 
 <section id="realisasi" class="menu-section">
@@ -365,41 +365,13 @@ Data Belum Update Realisasi
 Realisasi Pembangunan
 </div>
 
-<table class="table table-bordered">
-
-<thead>
-
-<tr>
-
-<th>No</th>
-<th>Kegiatan</th>
-<th>Target</th>
-<th>Realisasi</th>
-<th>Persentase</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>1</td>
-<td>Pembangunan Jalan Desa</td>
-<td>100%</td>
-<td>100%</td>
-<td>100%</td>
-
-</tr>
-
-</tbody>
-
-</table>
+<h5>Belum ada data realisasi</h5>
 
 </div>
 
 </section>
+
+
 
 <!-- DOKUMENTASI -->
 
@@ -408,21 +380,21 @@ Realisasi Pembangunan
 <div class="card-box">
 
 <div class="menu-title">
-Dokumentasi Pembangunan
+Dokumentasi
 </div>
 
 <div class="row">
 
-<div class="col-md-4 mb-3">
-<img src="https://via.placeholder.com/350x200">
+<div class="col-md-4">
+<img src="https://via.placeholder.com/300x200">
 </div>
 
-<div class="col-md-4 mb-3">
-<img src="https://via.placeholder.com/350x200">
+<div class="col-md-4">
+<img src="https://via.placeholder.com/300x200">
 </div>
 
-<div class="col-md-4 mb-3">
-<img src="https://via.placeholder.com/350x200">
+<div class="col-md-4">
+<img src="https://via.placeholder.com/300x200">
 </div>
 
 </div>
@@ -431,11 +403,17 @@ Dokumentasi Pembangunan
 
 </section>
 
+
+
 <div class="footer">
+
 © 2026 Pemerintah Desa Baleharjo Sragen | Admin Redi
+
 </div>
 
 </div>
+
+
 
 <script>
 
@@ -509,6 +487,9 @@ document.getElementById("sumberDanaLain").value;
 
 let data = {
 
+row :
+document.getElementById("editRow").value,
+
 nama_kegiatan :
 document.getElementById("nama_kegiatan").value,
 
@@ -541,17 +522,31 @@ body : JSON.stringify(data)
 
 .then(res => {
 
-alert("Data berhasil disimpan!");
+if(res.status == "updated"){
+
+alert("Data berhasil diupdate");
+
+}else{
+
+alert("Data berhasil disimpan");
+
+}
 
 document
 .getElementById("formPembangunan")
 .reset();
 
+document
+.getElementById("editRow").value = "";
+
 loadData();
 
+showSection('data');
+
 });
 
 });
+
 
 
 
@@ -596,6 +591,7 @@ tbody.innerHTML += `
 class="btn btn-warning btn-sm"
 onclick="editData(
 
+'${item.row}',
 '${item.nama_kegiatan}',
 '${item.lokasi}',
 '${item.volume}',
@@ -631,9 +627,11 @@ Hapus
 
 
 
+
 // EDIT DATA
 
 function editData(
+row,
 kegiatan,
 lokasi,
 volume,
@@ -643,6 +641,9 @@ pka
 ){
 
 showSection('input');
+
+document.getElementById("editRow").value =
+row;
 
 document.getElementById("nama_kegiatan").value =
 kegiatan;
@@ -663,6 +664,7 @@ document.getElementById("nama_pka").value =
 pka;
 
 }
+
 
 
 
