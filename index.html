@@ -122,6 +122,7 @@
     }
 
   </style>
+
 </head>
 
 <body>
@@ -138,11 +139,37 @@
     </div>
 
     <ul>
-      <li><a href="#home">🏠 Home</a></li>
-      <li><a href="#input">📝 Input Data</a></li>
-      <li><a href="#data">📊 Data Pembangunan</a></li>
-      <li><a href="#realisasi">💰 Realisasi Pembangunan</a></li>
-      <li><a href="#dokumentasi">📸 Dokumentasi</a></li>
+
+      <li>
+        <a href="#" onclick="showSection('home')">
+          🏠 Home
+        </a>
+      </li>
+
+      <li>
+        <a href="#" onclick="showSection('input')">
+          📝 Input Data
+        </a>
+      </li>
+
+      <li>
+        <a href="#" onclick="showSection('data')">
+          📊 Data Pembangunan
+        </a>
+      </li>
+
+      <li>
+        <a href="#" onclick="showSection('realisasi')">
+          💰 Realisasi Pembangunan
+        </a>
+      </li>
+
+      <li>
+        <a href="#" onclick="showSection('dokumentasi')">
+          📸 Dokumentasi
+        </a>
+      </li>
+
     </ul>
 
   </div>
@@ -153,7 +180,7 @@
 
     <!-- HOME -->
 
-    <section id="home">
+    <section id="home" class="menu-section">
 
       <div class="hero">
 
@@ -172,7 +199,7 @@
 
     <!-- INPUT DATA -->
 
-    <section id="input">
+    <section id="input" class="menu-section">
 
       <div class="card-box">
 
@@ -187,6 +214,7 @@
             <!-- NAMA KEGIATAN -->
 
             <div class="col-md-6 mb-3">
+
               <label class="form-label">
                 Uraian Nama Kegiatan
               </label>
@@ -196,11 +224,13 @@
                 class="form-control"
                 id="nama_kegiatan"
                 required>
+
             </div>
 
             <!-- LOKASI -->
 
             <div class="col-md-6 mb-3">
+
               <label class="form-label">
                 Lokasi Kegiatan
               </label>
@@ -210,11 +240,13 @@
                 class="form-control"
                 id="lokasi"
                 required>
+
             </div>
 
             <!-- VOLUME -->
 
             <div class="col-md-6 mb-3">
+
               <label class="form-label">
                 Rencana Volume
               </label>
@@ -224,6 +256,7 @@
                 class="form-control"
                 id="volume"
                 required>
+
             </div>
 
             <!-- SUMBER DANA -->
@@ -340,7 +373,7 @@
 
     <!-- DATA PEMBANGUNAN -->
 
-    <section id="data">
+    <section id="data" class="menu-section">
 
       <div class="card-box">
 
@@ -417,7 +450,7 @@
 
     <!-- REALISASI -->
 
-    <section id="realisasi">
+    <section id="realisasi" class="menu-section">
 
       <div class="card-box">
 
@@ -457,7 +490,7 @@
 
     <!-- DOKUMENTASI -->
 
-    <section id="dokumentasi">
+    <section id="dokumentasi" class="menu-section">
 
       <div class="card-box">
 
@@ -497,6 +530,28 @@
 
     const scriptURL =
     "https://script.google.com/macros/s/AKfycbzHbGNYfVNt50FsWObxX_czUyfU1V_MIMHwOYLWSRIG1z1gCQlLUrm9YKh-ZmClnmYgPw/exec";
+
+    // MENU SECTION
+
+    function showSection(id){
+
+      let sections =
+      document.querySelectorAll('.menu-section');
+
+      sections.forEach(function(section){
+
+        section.style.display = 'none';
+
+      });
+
+      document.getElementById(id).style.display = 'block';
+    }
+
+    // DEFAULT HOME
+
+    showSection('home');
+
+    // SUMBER DANA
 
     function cekSumberDana(){
 
@@ -570,7 +625,7 @@
 
         alert("Data berhasil disimpan!");
 
-        tambahTabel(data);
+        tambahTabel();
 
         document
         .getElementById("formPembangunan")
@@ -590,14 +645,23 @@
 
     });
 
-    // TAMPIL DATA KE TABEL
+    // TABEL DATA
 
     let nomor = 1;
 
-    function tambahTabel(data){
+    function tambahTabel(){
 
       let tbody =
       document.getElementById("belumRealisasi");
+
+      let sumberDana =
+      document.getElementById("sumberDana").value;
+
+      if(sumberDana === "LAINYA"){
+
+        sumberDana =
+        document.getElementById("sumberDanaLain").value;
+      }
 
       let row =
 
@@ -607,7 +671,7 @@
         <td>${document.getElementById("nama_kegiatan").value}</td>
         <td>${document.getElementById("lokasi").value}</td>
         <td>${document.getElementById("volume").value}</td>
-        <td>${document.getElementById("sumberDana").value}</td>
+        <td>${sumberDana}</td>
         <td>Rp ${document.getElementById("pagu").value}</td>
         <td>${document.getElementById("nama_pka").value}</td>
       </tr>
